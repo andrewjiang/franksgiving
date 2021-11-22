@@ -1,0 +1,17 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "snapshot": "node exportsnapshot.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "arrays-to-csv": "^2.0.1",
+    "convert-array-to-csv": "^2.0.0",
+    "export-to-csv": "^0.2.1"
+  }
+}
