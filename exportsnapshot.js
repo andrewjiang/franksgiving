@@ -2,10 +2,15 @@ const data = require('./nov22.json');
 const arrayToCsv = require('arrays-to-csv');
 
 const dataArrays = [];
-let counter = 0
+let counter = 0;
 
 data.result.map(result => {
-    for (let i = 0; i < result.amount; i++) {
+    let amount = result.amount;
+    if(result.owner_of == '0x5a379aacf8bf1e9d4e715d00654846eb1cfc8a76') { return }
+    if(result.amount == 3) { amount = 5};
+    if(result.amount == 4) { amount = 10};
+    if(result.amount == 5) { amount = 25};
+    for (let i = 0; i < amount; i++) {
         dataArrays.push({"index": counter, "wallet": result.owner_of})
         counter += 1;
     }
