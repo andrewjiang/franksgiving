@@ -46,19 +46,20 @@ async function makeGetRequest() {
             headers: { 'accept': 'application/json', 'X-API-Key': `${process.env.MORALIS_API_KEY}`}
         }
 
-        const data = await axios(config)
+        const data = await axios(config2)
             .then(result => result.data)
 
         data.result.map(result => {
             let amount = result.amount;
             if(result.owner_of == '0x5a379aacf8bf1e9d4e715d00654846eb1cfc8a76') { return }
-            if(result.amount == 3) { amount = 5};
-            if(result.amount == 4) { amount = 10};
-            if(result.amount == 5) { amount = 25};
-            for (let i = 0; i < amount; i++) {
-                dataArrays.push({"index": counter, "wallet": result.owner_of})
-                counter += 1;
-            }
+            dataArrays.push({"amount": amount, "wallet": result.owner_of})
+            // if(result.amount == 3) { amount = 5};
+            // if(result.amount == 4) { amount = 10};
+            // if(result.amount == 5) { amount = 25};
+            // for (let i = 0; i < amount; i++) {
+            //     dataArrays.push({"index": counter, "wallet": result.owner_of})
+            //     counter += 1;
+            // }
         });
     } catch (error) {
         console.log(error)
